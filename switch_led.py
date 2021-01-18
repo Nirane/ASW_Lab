@@ -12,9 +12,9 @@ def on_connect(client, userdata, flags, rc):
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     if str(msg.payload) == "b'0'":
-        publish("led/504","0")
-    else
-        publish("led/504","1")
+        client.publish("led/504","0")
+    else:
+        client.publish("led/504","1")
 
 client = mqtt.Client()
 client.on_connect = on_connect
